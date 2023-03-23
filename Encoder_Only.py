@@ -14,6 +14,22 @@ def encode(password):
         enc_password += single_enc_digit
     return enc_password
 
+#Jacob Mungai
+def decode(password):
+    # Input: "00009962"
+    # Output: "33332295"
+        # For each elem in Input
+            # Convert elem to int and subtract 3, then change back to string
+            # (Must ensure that when we subtract 3 to elem, it is still within range 0 - 9
+            # Add encoded elem to Output string
+        # Return the decoded password
+    dec_password = ""
+    for digit in password:
+        dec_digit = str(int(digit) - 3)
+        single_dec_digit = str(int(dec_digit) % 10)
+        dec_password += single_dec_digit
+    return dec_password
+
 
 def main():
     while True:
@@ -25,7 +41,9 @@ def main():
             password = input("Please enter your password to encode: ")
             print("Your password has been encoded and stored!")
         elif option == 2:
-            pass
+            print(f"The encoded password is {encode(password)}, and the original password is {password}.")
+        elif option == 3:
+            break
 
 
 
